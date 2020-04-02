@@ -21,7 +21,9 @@ def prepareImage(img):
 def predict():
     img = plt.imread(request.files['file'])
     img = prepareImage(img)
-    labels = {0: 'No Diabetic Retinopathy', 1: 'Diabetic Retinopathy Present'}
+    labels = {0: 'No Diabetic Retinopathy', 1: 'Mild Diabetic Retinopathy',
+              2: 'Moderate Diabetic Retinopathy', 3: 'Severe Diabetic Retinopathy',
+              4: 'Proliferate Diabetic Retinopathy'}
     pred = model.predict(img)
     return labels[int(pred)]
 
